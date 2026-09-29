@@ -1,0 +1,57 @@
+class Hospital:
+    def _init_(self):
+        self.hos_name = input("Enter Hospital name: ")
+        self.location = input("Enter Location: ")
+        self.phone = input("Enter Phone number: ")
+
+    def display_hospital(self):
+        print("\n--- Hospital Details ---")
+        print("Hospital Name:", self.hos_name)
+        print("Location:", self.location)
+        print("Phone:", self.phone)
+
+
+class Department:
+    def _init_(self):
+        self.dept_name = input("Enter Department name: ")
+        self.doctor_name = input("Enter Doctor name: ")
+
+    def display_department(self):
+        print("\n--- Department Details ---")
+        print("Department Name:", self.dept_name)
+        print("Doctor Name:", self.doctor_name)
+
+
+class Patient(Hospital, Department):
+
+    def _init_(self):
+        # Calling parent constructors
+        Hospital._init_(self)
+        Department._init_(self)
+
+        # Patient properties
+        self.patient_name = input("Enter Patient name: ")
+        self.age = int(input("Enter Age: "))
+        self.gender = input("Enter Gender: ")
+        self.admission_date = input("Enter Admission date: ")
+        self.bed_no = input("Enter Bed number: ")
+        self.discharge_date = input("Enter Discharge date: ")
+
+    def full_summary(self):
+        Hospital.display_hospital(self)
+        Department.display_department(self)
+
+        print("\n--- Patient Details ---")
+        print("Patient Name:", self.patient_name)
+        print("Age:", self.age)
+        print("Gender:", self.gender)
+        print("Admission Date:", self.admission_date)
+        print("Bed Number:", self.bed_no)
+        print("Discharge Date:", self.discharge_date)
+
+
+# Create Patient object
+p = Patient()
+
+# Display complete details
+p.full_summary()

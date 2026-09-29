@@ -1,0 +1,11 @@
+n=152
+sum=0
+temp=n
+while(temp>0):
+    d=temp%10
+    sum=sum+d**3
+    temp//=10
+if sum==n:
+    print("armstrong")
+else:
+    print("not artmstrong")
